@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Жанр: {{ genre.name }}{% endblock %}
+
+{% block content %}
+<h1>Жанр: {{ genre.name }}</h1>
+<ul>
+    {% for book in books %}
+        <li>
+            <strong>Название:</strong> {{ book.title }},
+            <strong>Автор:</strong> {{ book.author }}
+        </li>
+    {% endfor %}
+</ul>
+<a href="{{ url_for('main.index') }}">Назад на главную</a>
+{% endblock %}
+

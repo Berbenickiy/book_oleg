@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+<h1>Последние 15 книг</h1>
+<ul>
+    {% for book in books %}
+        <li>
+            <strong>Название:</strong> {{ book.title }},
+            <strong>Автор:</strong> {{ book.author }},
+            <strong>Жанр:</strong>
+            <a href="{{ url_for('main.genre_page', genre_id=book.genre.id) }}">{{ book.genre.name }}</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
